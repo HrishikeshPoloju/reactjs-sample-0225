@@ -8,8 +8,9 @@ export default function Header({ profileUrl }) {
       {profileUrl ? (
         <img src={profileUrl} alt="profile" className="rounded-full h-10 w-10 object-cover" />
       ) : (
-        <div className="rounded-full h-10 w-10 bg-gray-300 animate-pulse" />
+        <div className="rounded-full h-10 w-10 bg-gray-300 animate-pulse"  data-testid="profile-loading"/>
       )}
+      
     </header>
   );
 }
