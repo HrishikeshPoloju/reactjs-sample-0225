@@ -79,7 +79,7 @@ export default function Dashboard() {
 
   if (loadingUser) return <p className="p-4">Loading...</p>;
 
-  return (
+return (
     <div>
       <Header profileUrl={profileUrl} />
 
@@ -111,6 +111,7 @@ export default function Dashboard() {
           taskDate={taskDate}
           setTaskDate={setTaskDate}
           onAddTask={handleAddTask}
+          onClose={() => setShowPopup(false)}
         />
       )}
 
