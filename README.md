@@ -181,13 +181,3 @@ Run tests:
 npx vitest run
 ```
 
----
-
-Let me know if you want me to:
-
-* Polish the image (task board UI or test results screenshot)
-* Add a **"Future Improvements"** section
-* Generate a **cover image** for Behance/LinkedIn
-* Format this directly as a `README.md` file ready to push to GitHub
-
-Would you like that next?
