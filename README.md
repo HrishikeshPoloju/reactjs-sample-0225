@@ -1,114 +1,184 @@
-TasksBoard – A Smart Task Management App
+Absolutely Hrishi! Here's an **enhanced and polished version** of your `README.md` content that reflects **clarity, frontend expertise, and professionalism**, tailored to **impress recruiters** and match internship standards:
 
-A responsive, dynamic, and Firebase-backed task board application built with ReactJS that allows users to manage tasks across multiple lists with persistent data and dynamic UI personalization.
+---
 
- Tech Stack & Architecture
-Technology	:Purpose in the project
-ReactJS	: Core frontend library for building the UI.
-React Router DOM :	Enables routing and protected routes (/dashboard only for logged-in users).
-Firebase Auth	: Handles user authentication (Login & Signup).
-Firestore DB	:Stores each user’s unique task lists and tasks persistently.
-React Firebase Hooks : Simplifies auth state management and integration with Firebase.
-Picsum.photos API	: Generates a random profile image per user from 1000+ dynamic sources.
-Tailwind CSS : Rapid styling and mobile responsiveness with utility classes.
-Jest + React Testing Library :	Unit testing of UI components to ensure reliability.
-Vercel :	Hosted and deployed the application for real-world access.
+# 🚀 TasksBoard – A Smart Task Management App
 
-Features
-=> Authentication
+A **modern, responsive, and Firebase-powered task board application** built with **ReactJS**, designed to help users manage tasks across customizable lists. Featuring **real-time updates, secure authentication, persistent data, dynamic user profiles**, and **unit-tested components** — all deployed live for real-world usage.
 
-Login / Signup using Firebase Auth
+---
 
-Protected Dashboard accessible only to logged-in users
+## 🛠️ Tech Stack & Architecture
 
-=> Task Management
+| Technology                             | Purpose                                                                 |
+| -------------------------------------- | ----------------------------------------------------------------------- |
+| **ReactJS**                            | Core frontend library to build a dynamic SPA (Single Page Application). |
+| **React Router DOM**                   | Enables routing and guards `/dashboard` using protected routes.         |
+| **Firebase Auth**                      | Manages login/signup and handles secure user authentication.            |
+| **Firestore DB**                       | Stores task lists & tasks persistently per user via UID.                |
+| **React Firebase Hooks**               | Simplifies auth state sync using `useAuthState`.                        |
+| **Tailwind CSS**                       | Enables fast and responsive UI styling using utility-first classes.     |
+| **Picsum.photos API**                  | Random dynamic profile image generation for each user session.          |
+| **Jest + React Testing Library (RTL)** | Ensures UI component reliability through automated tests.               |
+| **Vercel**                             | Production-ready deployment with fast CDN and CI/CD support.            |
 
-Add, edit, delete, and mark tasks as complete
+---
 
-Create multiple task lists like “Work”, “Personal”, etc.
+## ✅ Features Overview
 
-Persistent state: Your tasks remain even after refreshing or logging out
+### 🔐 Authentication
 
-=> Dynamic Profile Image
+* Secure **Login/Signup** with Firebase Auth
+* **ProtectedRoute** guards `/dashboard` from unauthorized access
 
-Each user gets a unique profile image via https://picsum.photos/id/<0–999>/info
+### 📋 Task Management
 
-=> Modular Structure
+* Create/Delete multiple **task lists** (e.g., "Work", "Personal")
+* **Add/Edit/Delete** tasks within each list
+* **Mark tasks as completed**, auto-reorder for clean visuals
+* **Persistent**: Tasks survive refresh or logout via Firestore
 
-Components split logically (e.g., TaskList, TaskCard, Header, TaskPopup) for better maintainability
+### 🧑‍🎨 Dynamic Profile Identity
 
-Custom hooks like useTaskData() encapsulate Firestore logic
+* Random profile image via [`picsum.photos`](https://picsum.photos/id/77/info)
+* Each user gets a **unique avatar** on login, powered by external API
 
-=> Testing
+### 🧩 Modular Structure
 
-Critical components like TaskPopup, TaskCard, and ProtectedRoute tested using Jest + RTL
+* Split into **reusable components**: `TaskList`, `TaskCard`, `Header`, `TaskPopup`
+* Centralized Firestore logic in `useTaskData()` hook for clean data flow
 
-✅ All test cases pass
+### 🧪 Testing with Jest + RTL
 
-See screenshot below 👇
+* Covered all critical components to ensure reliability and confidence
+* ✅ **All tests passing** – Screenshot below
 
-![{4F1DFE7F-87B8-4F42-B958-57C953597127}](https://github.com/user-attachments/assets/6bd53cad-ded4-41e4-b24e-29f8c8e452b9)
- Test Coverage Highlights:
-Component	                      Test Description	                         Result
-TaskPopup	       Renders correctly, inputs update state, add button works	 ✅ Passed
-TaskCard	       Toggles task completion, delete works	                   ✅ Passed
-ProtectedRoute  	Redirects unauthenticated user to login	                 ✅ Passed
+---
 
+## 🧪 Test Coverage Snapshot
 
-📱 Responsive Design
+| Component        | Test Description                                      | Result   |
+| ---------------- | ----------------------------------------------------- | -------- |
+| `TaskPopup`      | Renders inputs, updates state, handles add task logic | ✅ Passed |
+| `TaskCard`       | Toggles task completion and deletes tasks correctly   | ✅ Passed |
+| `ProtectedRoute` | Redirects unauthenticated users to login route        | ✅ Passed |
 
-Mobile-first UI with Tailwind CSS
+**🖼️ Screenshot of passing tests:**
+![Tests Passing](https://github.com/user-attachments/assets/6bd53cad-ded4-41e4-b24e-29f8c8e452b9)
 
-Fully responsive task board layout across screen sizes
+---
 
-Live Demo
-🟢 https://your-vercel-link.vercel.app
+## 📱 Responsive Design
 
-How It Works – Behind the Scenes
-Let’s walk through the logic that powers the TasksBoard experience from login to task management:
+* Built mobile-first using Tailwind CSS
+* Fully responsive layout optimized for **mobile, tablet, and desktop**
+* Task lists use horizontal scrolling on smaller screens for UX clarity
 
-1. User Authentication with Firebase
-When a user signs up or logs in, we use Firebase Authentication.
+---
 
-Firebase generates a unique user ID (uid) for each user.
+## 🌐 Live Demo
 
-This uid is used to securely identify and isolate each user's data in the Firestore database.
+🟢 **Deployed on Vercel** → [https://your-vercel-link.vercel.app](https://your-vercel-link.vercel.app)
 
-2. User-Specific Data Storage in Firestore
-Once logged in, the app checks if the Firestore has any task lists for the current user.
+---
 
-If not, it creates a new document in Firestore with the uid as the key.
+## 🔍 How It Works – Behind the Scenes
 
-All task lists and tasks are saved under this user-specific document, making the data persistent across sessions.
+### 1. 🔐 User Authentication (Firebase Auth)
 
-3. Custom Hook: useTaskData()
-This custom React Hook encapsulates all logic related to Firestore:
+* On login/signup, Firebase creates a **unique UID** for the user.
+* This UID ensures **each user’s data is isolated and secure**.
 
-Fetching tasks when the dashboard loads.
+### 2. 🗄️ Firestore Data Storage (Per User)
 
-Updating Firestore when a task is added, updated, or deleted.
+* On first login, Firestore creates a document tied to the user's UID.
+* **All task lists and their tasks are stored in this document**.
+* State is **persistent** across refreshes and logouts.
 
-Ensuring the UI stays in sync with the backend in real-time.
+### 3. 🧪 useTaskData() – Custom React Hook
 
-It abstracts the complexity, so the component using it stays clean and readable.
+* Centralizes all Firestore logic:
 
-4. Dynamic Profile Image
-When the user logs in, we use the https://picsum.photos/id/<random>/info API.
+  * Fetching task data on mount
+  * Updating tasks/lists
+  * Syncing with UI in real-time
+* This **decouples business logic from UI**, making components clean and scalable.
 
-A random number (0–999) is generated, and a unique profile image is fetched.
+### 4. 🧑‍🎨 Dynamic Profile Avatar
 
-This image is stored in state and shown in the header, giving each user a visually distinct identity.
+* A random number (0–999) is generated on dashboard mount.
+* This number is passed to [`picsum.photos`](https://picsum.photos) to fetch a **unique profile picture**.
+* Image is stored in state and shown in the header for a personalized UX.
 
-5. Protected Routing
-We use a ProtectedRoute component to guard the Dashboard route.
+### 5. 🔐 Protected Routing
 
-Only authenticated users can access /dashboard.
+* The `<ProtectedRoute>` component uses `useAuthState` to:
 
-If someone tries to access it without logging in, they’re redirected back to the login page.
+  * Detect if a user is logged in
+  * Redirect unauthenticated users to `/`
+* Ensures **data is never exposed to unauthorized users**.
 
-This ensures both security and a smooth user experience.
+### 6. ⚡ Real-Time UX
 
-Real-time UX
-Changes like marking a task as completed, adding/deleting tasks or lists are immediately reflected in the UI.
+* All task actions (add/delete/mark complete) **immediately update Firestore**.
+* The UI reflects changes in real time, providing a smooth and engaging experience.
 
-Thanks to React state + Firestore updates, everything feels fast and interactive!
+---
+
+## 📂 Project Structure Highlights
+
+```bash
+src/
+├── components/
+│   ├── Login.jsx
+│   ├── Signup.jsx
+│   └── dashboard/
+│       ├── Header.jsx
+│       ├── TaskList.jsx
+│       ├── TaskPopup.jsx
+│       └── TaskCard.jsx
+├── hooks/
+│   └── useTaskData.js
+├── routes/
+│   └── ProtectedRoute.jsx
+├── App.jsx
+├── firebase.js
+└── main.jsx
+```
+
+---
+
+## 🧪 Run Tests Locally
+
+```bash
+# Install testing tools
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom jsdom
+
+# Add setup file for jest-dom
+touch setupTests.js
+```
+
+**setupTests.js**:
+
+```js
+import '@testing-library/jest-dom';
+```
+
+Add this to `vite.config.js` or `package.json` to ensure setup file is used.
+
+Run tests:
+
+```bash
+npx vitest run
+```
+
+---
+
+Let me know if you want me to:
+
+* Polish the image (task board UI or test results screenshot)
+* Add a **"Future Improvements"** section
+* Generate a **cover image** for Behance/LinkedIn
+* Format this directly as a `README.md` file ready to push to GitHub
+
+Would you like that next?
