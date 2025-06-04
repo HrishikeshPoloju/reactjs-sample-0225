@@ -17,13 +17,27 @@ export default function Dashboard() {
   const [selectedList, setSelectedList] = useState(0);
   const [profileUrl, setProfileUrl] = useState("");
 
-  useEffect(() => {
+ useEffect(() => {
+  const userEmail = auth.currentUser?.email;
+
+  if (!userEmail) return;
+
+  const localStorageKey = `profileImageId_${userEmail}`;
+  let storedId = localStorage.getItem(localStorageKey);
+
+  if (!storedId) {
     const randomId = Math.floor(Math.random() * 1000);
-    fetch(`https://picsum.photos/id/${randomId}/info`)
-      .then(res => res.json())
-      .then(data => setProfileUrl(data.download_url))
-      .catch(err => console.error("Profile fetch error:", err));
-  }, []);
+    localStorage.setItem(localStorageKey, randomId);
+    storedId = randomId;
+  }
+
+  fetch(`https://picsum.photos/id/${storedId}/info`)
+    .then(res => res.json())
+    .then(data => setProfileUrl(data.download_url))
+    .catch(err => console.error("Profile fetch error:", err));
+}, []);
+
+
 
   const toggleComplete = (listIdx, taskIdx) => {
     const updated = [...taskLists];
