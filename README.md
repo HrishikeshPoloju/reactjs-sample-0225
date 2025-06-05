@@ -5,7 +5,7 @@ A **modern, responsive, and Firebase-powered task board application** built with
 
 ### Live Project (depolyed link) : https://taskboard-omega.vercel.app/
 
-### Project explanation Youtube video : 
+### Project explanation Youtube video : https://www.youtube.com/watch?v=xAwyTIuEU_k
 
 ---
 
